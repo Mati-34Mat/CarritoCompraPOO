@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarritoCompras
 {
-    class Producto
+    public class Producto
     {
         public int Codigo { get; set; }
         public string Nombre { get; set; }
@@ -14,5 +14,13 @@ namespace CarritoCompras
         public int Stock { get; set; }
         public Categoria Categoria { get; set; }
 
+        public Producto(int codigo, string nombre, decimal precio, int stock, Categoria categoria)
+        {
+            Codigo = codigo;
+            Nombre = nombre;
+            Precio = precio;
+            Stock = stock;
+            Categoria = categoria;
+        }
     }
 }
