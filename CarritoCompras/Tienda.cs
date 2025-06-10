@@ -47,7 +47,7 @@ namespace CarritoCompras
             Console.WriteLine("Productos disponibles:");
             for (int i = 0; i < Productos.Count; i++) {
                 var producto = Productos[i];
-                Console.WriteLine($"{i + 1}. {producto.Nombre} - Precio: ${producto.Precio} - Stock: {Producto.Stock}");
+                Console.WriteLine($"{i + 1}. {producto.Nombre} - Precio: ${producto.Precio} - Stock: {producto.Stock}");
             }
             return;
         }
@@ -58,7 +58,7 @@ namespace CarritoCompras
             for (int i = 0; i < Productos.Count; i++) {
                 var producto = Productos[i];
                 if (producto.Categoria == categoria) {
-                    Console.WriteLine($"{i + 1}. {producto.Nombre} - Precio: ${producto.Precio} - Stock: {Producto.Stock}");
+                    Console.WriteLine($"{i + 1}. {producto.Nombre} - Precio: ${producto.Precio} - Stock: {producto.Stock}");
                 }
             }
         }

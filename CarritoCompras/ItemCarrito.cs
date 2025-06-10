@@ -11,7 +11,7 @@ namespace CarritoCompras
         public Producto Producto { get; set; }
         public int Cantidad { get; set; }
 
-        public ItemCarrito(Cantidad cantidad, Producto producto)
+        public ItemCarrito(Producto producto, int cantidad)
         {
             Cantidad = cantidad;
             Producto = producto;

@@ -9,9 +9,11 @@ namespace CarritoCompras
     public class Carrito
     {
         public List<ItemCarrito> Productos { get; set; } = new List<ItemCarrito>();
+        public Tienda Tienda;
 
         public Carrito(List<ItemCarrito> productos, Tienda tienda) {
             Productos = productos;
+            Tienda = tienda;
         }
 
         public void AgregarProducto(int codigo, int cant)
@@ -36,24 +38,24 @@ namespace CarritoCompras
 
         public void EliminarProducto(Producto producto)
         {
-            var existe = Productos.FirstOrDefault(p => p.Codigo == Producto.Codigo);
+            var existe = Productos.FirstOrDefault(p => p.Producto.Codigo == producto.Codigo);
             if (existe == null)
             {
                 Console.WriteLine("El producto no está en el carrito.");
             }
             else
             {
-                Productos.Remove(producto);
+                Productos.Remove(existe);
             }
         }
 
-        public void MostrarCarrito(Carrito carrito);
+        public void MostrarCarrito(Carrito carrito)
         {
-            Console.WriteLine("Lista de items en el carrito:")
+            Console.WriteLine("Lista de items en el carrito:");
             for (int i = 0; i < Productos.Count; i++)
             {
                 var itemCarrito = Productos[i];
-                Console.WriteLine($"{i + 1}. {itemCarrito.Producto.Nombre}");
+                Console.WriteLine($"{i + 1}. {itemCarrito.Producto.Nombre} - ${itemCarrito.Producto.Precio}");
             }
         }
     }
