@@ -46,5 +46,15 @@ namespace CarritoCompras
                 Productos.Remove(producto);
             }
         }
+
+        public void MostrarCarrito(Carrito carrito);
+        {
+            Console.WriteLine("Lista de items en el carrito:")
+            for (int i = 0; i < Productos.Count; i++)
+            {
+                var itemCarrito = Productos[i];
+                Console.WriteLine($"{i + 1}. {itemCarrito.Producto.Nombre}");
+            }
+        }
     }
 }
