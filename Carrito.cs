@@ -25,9 +25,26 @@ namespace CarritoCompras
                 return;
             }
 
+            if (cant <= 0)
+            {
+                Console.WriteLine("Cantidad inválida.");
+                return;
+            }
+
+            if (existeEnTienda.Stock < cant)
+            {
+                Console.WriteLine("No hay suficiente stock disponible.");
+                return;
+            }
+
             var existeEnCarrito = Productos.FirstOrDefault(ic => ic.Producto.Codigo == codigo);
-            if (existeEnCarrito != null) 
-            { 
+            if (existeEnCarrito != null)
+            {
+                if (existeEnTienda.Stock < existeEnCarrito.Cantidad + cant)
+                {
+                    Console.WriteLine("No hay suficiente stock para esa cantidad total.");
+                    return;
+                }
                 existeEnCarrito.Cantidad += cant;
             }
             else
@@ -57,18 +74,6 @@ namespace CarritoCompras
                 var itemCarrito = Productos[i];
                 Console.WriteLine($"{i + 1}. {itemCarrito.Producto.Nombre} - ${itemCarrito.Producto.Precio}");
             }
-        }
-
-        public void MostrarTotal()
-        {
-            decimal suma = 0;
-            for (int i = 0; i < Productos.Count; i++)
-            {
-                var producto = Productos[i];
-                suma += producto.Precio;
-            }
-
-            Console.WriteLine($"El total a pagar es: ${suma}");
         }
     }
 }

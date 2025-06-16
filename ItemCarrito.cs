@@ -16,5 +16,14 @@ namespace CarritoCompras
             Cantidad = cantidad;
             Producto = producto;
         }
+
+        public decimal Subtotal()
+        {
+            decimal precioUnitario = Producto.Precio;
+            if (Cantidad >= 5)
+                precioUnitario *= 0.85m;
+            return precioUnitario * Cantidad;
+        }
+
     }
 }
