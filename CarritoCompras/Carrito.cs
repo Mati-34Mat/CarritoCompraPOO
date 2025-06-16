@@ -55,7 +55,7 @@ namespace CarritoCompras
 
         public void EliminarProducto(int codigo)
         {
-            var existe = Productos.FirstOrDefault(p => p.Producto.Codigo == producto.Codigo);
+            var existe = Productos.FirstOrDefault(p => p.Producto.Codigo == codigo);
             if (existe == null)
             {
                 Console.WriteLine("El producto no está en el carrito.");
