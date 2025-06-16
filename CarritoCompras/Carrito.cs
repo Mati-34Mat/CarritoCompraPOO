@@ -53,7 +53,7 @@ namespace CarritoCompras
             }
         }
 
-        public void EliminarProducto(Producto producto)
+        public void EliminarProducto(int codigo)
         {
             var existe = Productos.FirstOrDefault(p => p.Producto.Codigo == producto.Codigo);
             if (existe == null)
@@ -67,7 +67,7 @@ namespace CarritoCompras
             }
         }
 
-        public void MostrarCarrito(Carrito carrito)
+        public void MostrarCarrito()
         {
             if (!Productos.Any())
             {
