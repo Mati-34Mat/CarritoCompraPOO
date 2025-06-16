@@ -40,7 +40,61 @@ namespace CarritoCompras
                 string opcion = Console.ReadLine();
                 Console.WriteLine();
 
-                
+                switch (opcion)
+                {
+                    case "1":
+                        tienda.MostrarCategorias();
+                        break;
+
+                    case "2":
+                        tienda.MostrarProductos();
+                        break;
+
+                    case "3":
+                        tienda.MostrarCategorias();
+                        Console.Write("Seleccione el número de la categoría: ");
+                        if (int.TryParse(Console.ReadLine(), out int numCat) && numCat > 0 && numCat <= tienda.Categorias.Count)
+                        {
+                            var cat = tienda.Categorias[numCat - 1];
+                            tienda.ProductosFiltrados(cat);
+                        }
+                        else Console.WriteLine("Categoría inválida.");
+                        break;
+
+                    case "4":
+                        Console.Write("Ingrese el código del producto: ");
+                        int codAgregado = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese la cantidad: ");
+                        int cantAgregada = int.Parse(Console.ReadLine());
+                        carrito.AgregarProducto(codAgregado, cantAgregada);
+                        break;
+
+                    case "5":
+                        Console.Write("Ingrese el código del producto a eliminar: ");
+                        int codEliminado = int.Parse(Console.ReadLine());
+                        carrito.EliminarProducto(codEliminado);
+                        break;
+
+                    case "6":
+                        carrito.MostrarCarrito();
+                        break;
+
+                    case "7":
+                        carrito.MostrarTotal();
+                        break;
+
+                    case "8":
+                        carrito.FinalizarCompra();
+                        break;
+
+                    case "9":
+                        salir = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Opción inválida.");
+                        break;
+                }
             }
     }
 }
