@@ -81,5 +81,27 @@ namespace CarritoCompras
                 Console.WriteLine($"- {item.Producto.Nombre} x {item.Cantidad} unidades - Precio unitario: ${item.Producto.Precio} - Subtotal: ${item.Subtotal():0.00}");
             }
         }
+
+        public decimal CalcularTotalConIVA()
+        {
+            decimal totalSinIva = Productos.Sum(item => item.Subtotal());
+            return totalSinIva * 1.21m;
+        }
+
+        public void MostrarTotal()
+        {
+            Console.WriteLine($"Total a pagar (con IVA): ${CalcularTotalConIVA():0.00}");
+        }
+
+        public void FinalizarCompra()
+        {
+            foreach (var item in Productos)
+            {
+                item.Producto.Stock -= item.Cantidad;
+            }
+            Console.WriteLine("Compra finalizada con éxito.");
+            MostrarTotal();
+            Productos.Clear();
+        }
     }
 }
