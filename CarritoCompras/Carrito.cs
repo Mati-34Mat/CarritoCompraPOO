@@ -63,16 +63,22 @@ namespace CarritoCompras
             else
             {
                 Productos.Remove(existe);
+                Console.WriteLine("Producto eliminado del carrito.");
             }
         }
 
         public void MostrarCarrito(Carrito carrito)
         {
-            Console.WriteLine("Lista de items en el carrito:");
-            for (int i = 0; i < Productos.Count; i++)
+            if (!Productos.Any())
             {
-                var itemCarrito = Productos[i];
-                Console.WriteLine($"{i + 1}. {itemCarrito.Producto.Nombre} - ${itemCarrito.Producto.Precio}");
+                Console.WriteLine("El carrito está vacío.");
+                return;
+            }
+
+            Console.WriteLine("Contenido del carrito:");
+            foreach (var item in Productos)
+            {
+                Console.WriteLine($"- {item.Producto.Nombre} x {item.Cantidad} unidades - Precio unitario: ${item.Producto.Precio} - Subtotal: ${item.Subtotal():0.00}");
             }
         }
     }
