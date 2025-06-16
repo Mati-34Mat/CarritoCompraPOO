@@ -54,7 +54,7 @@ namespace CarritoCompras
 
         public void ProductosFiltrados(Categoria categoria)
         {
-            Console.WriteLine($"Productos disponibles en la categoria {categoria}:");
+            Console.WriteLine($"Productos disponibles en la categoria {categoria.Nombre}:");
             for (int i = 0; i < Productos.Count; i++) {
                 var producto = Productos[i];
                 if (producto.Categoria == categoria) {

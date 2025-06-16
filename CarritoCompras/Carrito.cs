@@ -25,9 +25,26 @@ namespace CarritoCompras
                 return;
             }
 
+            if (cant <= 0)
+            {
+                Console.WriteLine("Cantidad inválida.");
+                return;
+            }
+
+            if (existeEnTienda.Stock < cant)
+            {
+                Console.WriteLine("No hay suficiente stock disponible.");
+                return;
+            }
+
             var existeEnCarrito = Productos.FirstOrDefault(ic => ic.Producto.Codigo == codigo);
-            if (existeEnCarrito != null) 
-            { 
+            if (existeEnCarrito != null)
+            {
+                if (existeEnTienda.Stock < existeEnCarrito.Cantidad + cant)
+                {
+                    Console.WriteLine("No hay suficiente stock para esa cantidad total.");
+                    return;
+                }
                 existeEnCarrito.Cantidad += cant;
             }
             else
