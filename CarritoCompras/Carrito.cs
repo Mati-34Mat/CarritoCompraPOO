@@ -80,15 +80,12 @@ namespace CarritoCompras
             }
         }
 
-        public decimal CalcularTotalConIVA()
-        {
-            decimal totalSinIva = Productos.Sum(item => item.Subtotal());
-            return totalSinIva * 1.21m;
-        }
-
         public void MostrarTotal()
         {
-            Console.WriteLine($"Total a pagar (con IVA): ${CalcularTotalConIVA():0.00}");
+            decimal totalSinIVA = Productos.Sum(item => item.Subtotal());
+            decimal totalConIVA = totalSinIVA * 1.21m;
+
+            Console.WriteLine($"Total a pagar (con IVA): ${totalConIVA:0.00}");
         }
 
         public void FinalizarCompra()
