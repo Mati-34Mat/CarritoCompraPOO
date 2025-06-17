@@ -13,10 +13,10 @@ namespace CarritoCompras
             Tienda.Categorias.AddRange(new[] { bebidas, snacks });
             Tienda.Productos.AddRange(new[]
             {
-                new Producto(1, "Coca-Cola", 800m, 10, bebidas),
-                new Producto(2, "Pepsi", 750m, 5, bebidas),
-                new Producto(3, "Doritos", 600m, 8, snacks),
-                new Producto(4, "Maní salado", 400m, 12, snacks),
+                new Producto("Coca-Cola", 800m, 10, bebidas),
+                new Producto("Pepsi", 750m, 5, bebidas),
+                new Producto("Doritos", 600m, 8, snacks),
+                new Producto("Maní salado", 400m, 12, snacks),
             });
 
             var carrito = new Carrito(new List<ItemCarrito>());
