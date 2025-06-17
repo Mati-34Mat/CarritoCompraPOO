@@ -76,7 +76,7 @@ namespace CarritoCompras
             Console.WriteLine("Contenido del carrito:");
             foreach (var item in Productos)
             {
-                Console.WriteLine($"- {item.Producto.Nombre} x {item.Cantidad} unidades - Precio unitario: ${item.Producto.Precio} - Subtotal: ${item.Subtotal():0.00}");
+                Console.WriteLine($"{item.Producto.Codigo} - {item.Producto.Nombre} x {item.Cantidad} unidades - Precio unitario: ${item.Producto.Precio} - Subtotal: ${item.Subtotal():0.00}");
             }
         }
 
