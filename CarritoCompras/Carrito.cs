@@ -85,7 +85,7 @@ namespace CarritoCompras
             decimal totalSinIVA = Productos.Sum(item => item.Subtotal());
             decimal totalConIVA = totalSinIVA * 1.21m;
 
-            Console.WriteLine($"Total a pagar (con IVA): ${totalConIVA:0.00}");
+            Console.WriteLine($"Total (con IVA): ${totalConIVA:0.00}");
         }
 
         public void FinalizarCompra()
