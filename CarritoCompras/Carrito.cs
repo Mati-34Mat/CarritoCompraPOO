@@ -9,11 +9,9 @@ namespace CarritoCompras
     public class Carrito
     {
         public List<ItemCarrito> Productos { get; set; } = new List<ItemCarrito>();
-        public Tienda Tienda;
 
-        public Carrito(List<ItemCarrito> productos, Tienda tienda) {
+        public Carrito(List<ItemCarrito> productos) {
             Productos = productos;
-            Tienda = tienda;
         }
 
         public void AgregarProducto(int codigo, int cant)

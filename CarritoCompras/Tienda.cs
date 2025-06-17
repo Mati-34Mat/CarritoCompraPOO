@@ -7,18 +7,12 @@ using System.Threading.Tasks;
 
 namespace CarritoCompras
 {
-    public class Tienda
+    public static class Tienda
     {
-        public List<Producto> Productos { get; set; } = new List<Producto>();
-        public List<Categoria> Categorias { get; set; } = new List<Categoria>();
+        public static List<Producto> Productos { get; set; } = new List<Producto>();
+        public static List<Categoria> Categorias { get; set; } = new List<Categoria>();
 
-        public Tienda (List<Producto> productos, List<Categoria> categorias)
-        {
-            Productos = productos;
-            Categorias = categorias;
-        }
-
-        public void MostrarCategorias()
+        public static void MostrarCategorias()
         {
             if (!Categorias.Any())
             {
@@ -36,7 +30,7 @@ namespace CarritoCompras
 
         }
 
-        public void MostrarProductos()
+        public static void MostrarProductos()
         {
             if (!Productos.Any())
             {
@@ -52,7 +46,7 @@ namespace CarritoCompras
             return;
         }
 
-        public void ProductosFiltrados(Categoria categoria)
+        public static void ProductosFiltrados(Categoria categoria)
         {
             Console.WriteLine($"Productos disponibles en la categoria {categoria.Nombre}:");
             for (int i = 0; i < Productos.Count; i++) {

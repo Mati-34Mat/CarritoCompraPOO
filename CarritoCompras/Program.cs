@@ -10,17 +10,16 @@ namespace CarritoCompras
             var bebidas = new Categoria("Bebidas", "Bebidas frías y calientes");
             var snacks = new Categoria("Snacks", "Comidas para picar");
 
-            var categorias = new List<Categoria> { bebidas, snacks };
-            var productos = new List<Producto>
+            Tienda.Categorias.AddRange(new[] { bebidas, snacks });
+            Tienda.Productos.AddRange(new[]
             {
                 new Producto(1, "Coca-Cola", 800m, 10, bebidas),
                 new Producto(2, "Pepsi", 750m, 5, bebidas),
                 new Producto(3, "Doritos", 600m, 8, snacks),
-                new Producto(4, "Maní salado", 400m, 12, snacks)
-            };
+                new Producto(4, "Maní salado", 400m, 12, snacks),
+            });
 
-            var tienda = new Tienda(productos, categorias);
-            var carrito = new Carrito(new List<ItemCarrito>(), tienda);
+            var carrito = new Carrito(new List<ItemCarrito>());
 
             bool salir = false;
             while (!salir)
@@ -43,20 +42,20 @@ namespace CarritoCompras
                 switch (opcion)
                 {
                     case "1":
-                        tienda.MostrarCategorias();
+                        Tienda.MostrarCategorias();
                         break;
 
                     case "2":
-                        tienda.MostrarProductos();
+                        Tienda.MostrarProductos();
                         break;
 
                     case "3":
-                        tienda.MostrarCategorias();
+                        Tienda.MostrarCategorias();
                         Console.Write("Seleccione el número de la categoría: ");
-                        if (int.TryParse(Console.ReadLine(), out int numCat) && numCat > 0 && numCat <= tienda.Categorias.Count)
+                        if (int.TryParse(Console.ReadLine(), out int numCat) && numCat > 0 && numCat <= Tienda.Categorias.Count)
                         {
-                            var cat = tienda.Categorias[numCat - 1];
-                            tienda.ProductosFiltrados(cat);
+                            var cat = Tienda.Categorias[numCat - 1];
+                            Tienda.ProductosFiltrados(cat);
                         }
                         else Console.WriteLine("Categoría inválida.");
                         break;
